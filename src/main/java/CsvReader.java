@@ -111,11 +111,11 @@ public class CsvReader {
         int countColumn = values.length;
         Row row = new Row();
         for(int i = 0 ; i < countColumn; i++){
-            if(values[i]==""){
+            if(values[i].equals("")){
                 Column col = columnList.get(i);
                 col.setCountEmptyRow(col.getCountEmptyRow()+1);
             }
-            System.out.println(columnList.get(i).getColumnName()+ " "+  values[i] );
+            //System.out.println(columnList.get(i).getColumnName()+ " "+  values[i] );
         }
         row.setRowValues(values);
         rowList.add(row);
