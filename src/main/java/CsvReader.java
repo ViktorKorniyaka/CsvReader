@@ -72,9 +72,9 @@ public class CsvReader {
 
                 if(countRow == 0){
                     fileDescription.setColumnList(setColumnToList(values,columnList));
-                    fileDescription.setRowList(setRowToList(values, rowList,columnList));
+                    fileDescription.setRowList(setRowToList(values, rowList,columnList, countRow));
                 }else {
-                    fileDescription.setRowList(setRowToList(values,rowList,columnList));
+                    fileDescription.setRowList(setRowToList(values,rowList,columnList, countRow));
                 }
                 countRow++;
             }
@@ -107,7 +107,7 @@ public class CsvReader {
         return columnList;
     }
 
-    public static List<Row>  setRowToList(String[] values, List<Row> rowList, List<Column> columnList){
+    public static List<Row>  setRowToList(String[] values, List<Row> rowList, List<Column> columnList, int rowInt){
         int countColumn = values.length;
         Row row = new Row();
         for(int i = 0 ; i < countColumn; i++){
@@ -115,7 +115,8 @@ public class CsvReader {
                 Column col = columnList.get(i);
                 col.setCountEmptyRow(col.getCountEmptyRow()+1);
             }
-            //System.out.println(columnList.get(i).getColumnName()+ " "+  values[i] );
+            System.out.println(columnList.get(i).getColumnName()+ "rowInt " + rowInt);
+            System.out.println( "values "+  values[i] );
         }
         row.setRowValues(values);
         rowList.add(row);

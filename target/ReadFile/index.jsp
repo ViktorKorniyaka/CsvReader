@@ -19,12 +19,12 @@
         <br>Count of ROW: ${csv.countRow}
         <br>
         <c:forEach items="${csv.columnList}" var="column">
-            In column <c:out value= " ${column.columnName}"/>
+            In column <b><c:out value= " ${column.columnName}"/></b>
             Empty values are <c:out value= " ${column.countEmptyRow}"/><br>
         </c:forEach>
         <table>
                 <tr>
-                    <td>
+                    <td style="width: auto">
                          <c:forEach items="${csv.rowList}" var="row">
                             <br>
                             <c:forEach items="${row.rowValues}" var="rowStr">

@@ -17,8 +17,10 @@ public class CsvReaderServlet extends   HttpServlet{
         String folder= req.getParameter("folder");
         System.out.println("folder " + folder);
 
-        CsvReader csvReader = new CsvReader(folder);
-        List<CsvFileDescription> descriptionList = csvReader.getCsvFileDescription();
+       // CsvReader csvReader = new CsvReader(folder);
+        //List<CsvFileDescription> descriptionList = csvReader.getCsvFileDescription();
+        Parser parser = new Parser(folder);
+        List<CsvFileDescription> descriptionList = parser.parse();
 
         req.setAttribute("descriptionList", descriptionList);
 
